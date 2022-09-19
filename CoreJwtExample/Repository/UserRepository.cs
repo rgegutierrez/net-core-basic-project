@@ -127,6 +127,7 @@ namespace CoreJwtExample.Repository
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@UserId", oUser.UserId);
             parameters.Add("@Username", oUser.Username);
+            parameters.Add("@Name", oUser.Name);
             parameters.Add("@Email", oUser.Email);
             parameters.Add("@Password", oUser.Password);
             parameters.Add("@OperationType", nOperationType);
