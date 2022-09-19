@@ -66,6 +66,7 @@ namespace CoreJwtExample.Controllers
                 {
                     ToEmail = user.Email,
                     UserName = user.Username,
+                    Name = user.Name,
                     ActivationCode = user.Password
                 };
                 await _mailService.SendActivationCodeAsync(request);

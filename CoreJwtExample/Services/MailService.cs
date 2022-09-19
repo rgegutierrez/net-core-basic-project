@@ -58,11 +58,11 @@ namespace CoreJwtExample.Services
             StreamReader str = new StreamReader(FilePath);
             string MailText = str.ReadToEnd();
             str.Close();
-            MailText = MailText.Replace("[username]", request.UserName).Replace("[email]", request.ToEmail).Replace("[code]", request.ActivationCode);
+            MailText = MailText.Replace("[name]", request.Name).Replace("[email]", request.ToEmail).Replace("[code]", request.ActivationCode);
             var email = new MimeMessage();
             email.Sender = MailboxAddress.Parse(_mailSettings.Mail);
             email.To.Add(MailboxAddress.Parse(request.ToEmail));
-            email.Subject = $"Welcome {request.UserName}";
+            email.Subject = $"[Venta Interna FPC] Su código de activación es {request.ActivationCode}";
             var builder = new BodyBuilder();
             builder.HtmlBody = MailText;
             email.Body = builder.ToMessageBody();
